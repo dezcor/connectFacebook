@@ -1,0 +1,61 @@
+{{!< default}}
+
+{{#contentFor 'pageStyles'}}
+<style>
+    .clicker {
+        color: blue;
+    };
+</style>
+{{/contentFor}}
+
+{{#contentFor 'bodyPages'}}
+<div class="container">
+    {{> 'navbar'}}
+    
+
+    <section>
+        <h1>Awesome profiles</h1>
+        <p>Cuentanos acerca de tus logros mas increibles y deja que otros los conozcan.</p>
+        {{#if user}}
+        {{!-- <div class="row">
+            <div class="col-xs-6" style="float: none;">
+                <form action="/logro" method="post">
+                    <input class="form-control" placeholder="¿Qué impresionante logro quieres compartir?" type="text" name="logro" id="">
+                    <button type="submit" class="btn btn-info">Compartir</button>
+                </form>
+            </div>
+        </div> --}}
+        <hr/>
+        <h1 class="text-center">Amigos</h1>
+        <div class="row">
+            {{#each friends}}
+            <div class="col">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{{this.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <hr/>
+        <h1 class="text-center">Posts</h1>
+        <div class="row">
+                {{#each posts}}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>{{this.message}}</p>
+                            <hr/>
+                            <p><small>{{this.created_time}}</small></p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        {{/if}}
+    </section>
+</div>
+{{/contentFor}}
